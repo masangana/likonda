@@ -3,6 +3,10 @@
 		<h1 class="fw-thin"><%= t('Likonda') %></h1>
 	</div>
 	<div class="is-flex flex-direction-column buttons">
+        <% unless user_signed_in? %>
+            <%= link_to "LOG IN", new_user_session_path, class: "button is-primary" %>
+            <%= link_to "SIGN UP", new_user_registration_path, class: "button" %>
+        <% end %>
 		<%= link_to 'Log in', new_user_session_url, class: "button is-primary" %>
 		<%= link_to 'Sign up', new_user_registration_url, class: "button" %>
 	</div>
