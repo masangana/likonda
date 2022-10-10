@@ -11,6 +11,17 @@
   </head>
 
   <body>
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
+    <% if user_signed_in? %>
+      <%= button_to "Logout", destroy_user_session_path, { method: :delete, data: { turbo:false }}%>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
