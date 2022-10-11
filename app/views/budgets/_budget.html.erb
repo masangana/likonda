@@ -1,9 +1,12 @@
-<div class="is-flex has-background-color-white mx-2 mt-1 p-2 card-shadow">
-	<div class="is-flex flex-grow-1 flex-direction-column pl-2">
-		<div class="is-flex justify-space-between my-2">
-			<h5 class="fw-regular is-flex flex-grow-1"><%= deal.name %></h5>
-			<small class="fw-bold">$<%= deal.amount.round(2) %></small>
+<% @group.budgets.each_with_index do |budget, index| %>
+	<div class="is-flex has-background-color-white mx-2 mt-1 p-2 card-shadow">
+		<div class="is-flex flex-grow-1 flex-direction-column pl-2">
+			<div class="is-flex justify-space-between my-2">
+				<h5 class="fw-regular is-flex flex-grow-1"><%= budget.name %></h5>
+				<small class="fw-bold">$<%= budget.amount.round(2) %></small>
+			</div>
+			<small><%= budget.created_at.strftime("%d %b %Y") %></small>
+			<%= button_to "Delete", group_budget_path(@group, budget.id), method: :delete, class: "btn btn-danger" %>
 		</div>
-		<small><%= deal.created_at.strftime("%d %b %Y") %></small>
 	</div>
-</div>
+<% end %>

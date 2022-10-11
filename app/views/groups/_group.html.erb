@@ -6,7 +6,7 @@
 	<div class="is-flex flex-grow-1 flex-direction-column pl-2">
 		<div class="is-flex justify-space-between my-2">
 			<h5 class="fw-regular is-flex flex-grow-1"><%= group.name %></h5>
-			<small class="fw-bold">$<%= group.budgets.sum(:amount) %></small>
+			<small class="fw-bold">$<%= group.budgets.sum(:amount).round(2) %></small>
 		</div>
 		<small><%= time_ago_in_words(group[:created_at]) %></small>
 	</div>

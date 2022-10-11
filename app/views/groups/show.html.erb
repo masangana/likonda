@@ -13,9 +13,16 @@
   </header>
 	<div class="p-4 is-flex justify-content-between">
 		<p>Total Amount:</p>
-		<p class="fw-bold">$<%= @group.budgets.sum(:amount) %></p>
+		<p class="fw-bold">$<%= @group.budgets.sum(:amount).round(2) %></p>
 	</div>
 	<div class="divider mb-2"></div>
+
+    <% if @group.budgets.any? %>
+        <h1>All Allotted Budgets</h1>
+        <%= render partial: 'budgets/budget', locals: { group: @group } %>
+    <% else %>
+        <h1>No Budgets Yet</h1>
+    <% end %>
 </div>
 <footer class="p-4 is-secondary">
   <%= link_to 'Add a new Budget', new_group_budget_path(@group), class: "button is-outlined" %>
