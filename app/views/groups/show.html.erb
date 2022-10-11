@@ -10,6 +10,7 @@
     <%= link_to @budget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button has-text-white' do %>
       <span class="material-icons-outlined">delete</span>
     <% end %>
+    <%= button_to "Delete", group_path(@group), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button has-text-white' %>
   </header>
 	<div class="p-4 is-flex justify-content-between">
 		<p>Total Amount:</p>
