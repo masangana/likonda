@@ -3,10 +3,13 @@
 		<div class="is-flex flex-grow-1 flex-direction-column pl-2">
 			<div class="is-flex justify-space-between my-2">
 				<h5 class="fw-regular is-flex flex-grow-1"><%= budget.name %></h5>
-				<small class="fw-bold">$<%= budget.amount.round(2) %></small>
+				<small class="fw-bold">$<%= budget.amount.round(2) %>
+					<br>
+					<%= button_to "Delete", group_budget_path(@group, budget.id), method: :delete, class: "btn btn-danger" %>
+				</small>
 			</div>
 			<small><%= budget.created_at.strftime("%d %b %Y") %></small>
-			<%= button_to "Delete", group_budget_path(@group, budget.id), method: :delete, class: "btn btn-danger" %>
+			
 		</div>
 	</div>
 <% end %>

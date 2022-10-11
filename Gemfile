@@ -89,3 +89,5 @@ end
 
 
 gem "sassc-rails"
+
+gem 'material_icons'

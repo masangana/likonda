@@ -1,11 +1,2 @@
 <h1>Budgets#index</h1>
 <p>Find me in app/views/budgets/index.html.erb</p>
-
-
-      <% @group.budgets.each_with_index do |budget, index| %>
-        
-          <%= index + 1 %>
-          <%= budget.name %>
-          $ <%= budget.amount %>
-          
-      <% end %>
