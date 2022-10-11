@@ -1,0 +1,35 @@
+@import "colors";
+@import "components";
+@import "spacing";
+@import "flexbox";
+@import "layout";
+
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html {
+  font-family: "ProximaLight", serif;
+  color: $text-color;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

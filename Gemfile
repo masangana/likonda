@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 # use cancancan for authorization
 gem "cancancan" 
 
+# use scss for styling
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
@@ -85,3 +86,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+
+gem "sassc-rails"
