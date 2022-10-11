@@ -1,2 +1,22 @@
-<h1>Groups#show</h1>
-<p>Find me in app/views/groups/show.html.erb</p>
+
+<div class="is-flex flex-direction-column flex-grow-1">
+  <header class="header">
+		<%= link_to groups_path, class: "button" do %>
+      <span class="material-icons-outlined">arrow_back</span>
+    <% end %>
+    <div class="is-flex flex-grow-1 justify-content-center">
+      <h1 class="title">Budgets <%= @group.name %></h1>
+    </div>
+    <%= link_to @budget, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button has-text-white' do %>
+      <span class="material-icons-outlined">delete</span>
+    <% end %>
+  </header>
+	<div class="p-4 is-flex justify-content-between">
+		<p>Total Amount:</p>
+		<p class="fw-bold">$<%= @group.budgets.sum(:amount) %></p>
+	</div>
+	<div class="divider mb-2"></div>
+</div>
+<footer class="p-4 is-secondary">
+  <%= link_to 'Add a new Budget', new_group_budget_path(@group), class: "button is-outlined" %>
+</footer>
