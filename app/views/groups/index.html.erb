@@ -5,7 +5,7 @@
       <span class="material-icons-outlined">home</span>
     <% end %>
     <div class="is-flex flex-grow-1 justify-content-center">
-      <h1 class="title">Categories</h1>
+      <h1 class="title">Groups</h1>
     </div>
     <%= button_to destroy_user_session_url, method: :delete, class: 'button has-text-white' do %>
       <span class="material-icons-outlined">logout</span>
@@ -14,5 +14,5 @@
   <%= render @groups %>
 </div>
 <footer class="p-4 is-secondary">
-  <%= link_to 'Add Groupe', new_group_path, class: "button is-outlined" %>
+  <%= link_to 'Add Group', new_group_path, class: "button is-outlined" %>
 </footer>

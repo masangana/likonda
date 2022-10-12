@@ -67,6 +67,8 @@ group :development, :test do
 
   # use bullet to detect n+1 queries
   gem 'bullet'
+
+   gem 'factory_bot_rails'
 end
 
 group :development do
