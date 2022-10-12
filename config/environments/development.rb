@@ -62,14 +62,14 @@ Rails.application.configure do
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
-  config.action_mailer.default_url_options = { :host => "likonda.herokuapp.com", protocol: 'https' }
+  config.action_mailer.default_url_options = { :host => "likonda2.herokuapp.com", protocol: 'https' }
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     port: 465,
     address: 'mail.groupeshammah.com',
     user_name: 'likonda@groupeshammah.com',
-    password: 'Likonda@123',
+    password: 'Likonda@@123',
     authentication: :plain,
     enable_starttls_auto: true
   }
