@@ -16,16 +16,23 @@ class BudgetsController < ApplicationController
     @budget = @user.budgets.new(budget_params)
     if @budget.save
       @group_budget = @budget.group_budgets.create(group_id: params[:group_id])
-      flash[:success] = "Budget created!"
-      redirect_to budgets_path
+      flash[:success] = 'Budget created!'
+      redirect_to group_path(params[:group_id])
     else
       render 'new'
     end
   end
 
+  def destroy
+    @budget = Budget.find(params[:id])
+    @budget.destroy
+    flash[:success] = 'Budget deleted!'
+    redirect_to group_path(params[:group_id])
+  end
+
   private
 
   def budget_params
-    params.require(:budget).permit(:name, :amount)
+    params.permit(:name, :amount)
   end
 end

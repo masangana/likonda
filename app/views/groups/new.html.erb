@@ -1,2 +1,18 @@
-<h1>Groups#new</h1>
-<p>Find me in app/views/groups/new.html.erb</p>
+
+<div class="has-background-color is-flex flex-grow-1 flex-direction-column">
+  <%= form_with model: @group, url: groups_path(current_user, @group), method: :post do |f| %>
+    <div class="header">
+      <%= render "shared/back_button" %>
+      <div class="is-flex flex-grow-1 justify-content-center">
+        <h2 class="title">New Category</h2>
+      </div>
+      <%= f.submit "Save", class: "button has-text-white" %>
+    </div>
+    <%= render "devise/shared/error_messages", resource: @group %>
+    <div class="input-group my-2 shadow-box">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" , class: "input", placeholder: "Category Name", required: true %>
+      <div class="divider"></div>
+      <%= f.select :icon, @icons ,{ include_blank: 'Please select an icon' }, class: "input", required: true %>
+    </div>
+  <% end %>
+</div>

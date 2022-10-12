@@ -1,2 +1,18 @@
-<h1>Groups#index</h1>
-<p>Find me in app/views/groups/index.html.erb</p>
+
+<div class="is-flex flex-direction-column flex-grow-1 has-background-color">
+  <header class="header">
+    <%= link_to groups_path, class: 'button has-text-white' do %>
+      <span class="material-icons-outlined">home</span>
+    <% end %>
+    <div class="is-flex flex-grow-1 justify-content-center">
+      <h1 class="title">Groups</h1>
+    </div>
+    <%= button_to destroy_user_session_url, method: :delete, class: 'button has-text-white' do %>
+      <span class="material-icons-outlined">logout</span>
+    <% end %>
+  </header>
+  <%= render @groups %>
+</div>
+<footer class="p-4 is-secondary">
+  <%= link_to 'Add Group', new_group_path, class: "button is-outlined" %>
+</footer>
