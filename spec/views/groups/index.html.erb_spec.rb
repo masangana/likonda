@@ -1,27 +1,28 @@
 require 'rails_helper'
 
 RSpec.describe 'Groups', type: :feature do
-  before(:each) do
-    @user = User.create(name: 'lex', email: 'mail@mail.ru', password: 'password', password_confirmation: 'password')
-    @group = Group.create(name: 'Group', icon: 'access_alarms')
-  end
+  before(:example) do
+    @user = User.create(name: 'John Doe', email: 'john@mail.com', password: '123456', password_confirmation: '123456')
+    visit '/login'
+    fill_in 'user_email', with: 'john@mail.com'
+    fill_in 'user_password', with: '123456'
+    click_button 'Log in'
+  end 
 
-  scenario 'When the user logs in, they are presented with the Groups page' do
-    visit groups_path
-    expect(page).to have_content 'Groups'
-  end
+  describe 'GET /index' do
+    before(:example) { visit '/groups' }
 
-  scenario 'For each category, user can see name, icon, and total amount that belongs to a Group' do
-    visit groups_path
-    @user.groups.each do |group|
-      expect(page).to have_content group.name
-      expect(first('img') { |img| img[:src] == group.icon }).to be_present
+    it 'returns correct response status' do
+      expect(page).to have_http_status(:ok)
+    end
+
+    it 'renders correct template' do
+      expect(page).to have_current_path('/groups')
+    end
+
+    it 'returns correct response body' do
+      expect(page).to have_content('Add Group')
     end
   end
 
-  scenario 'There is an "ADD GROUPE" button' do
-    visit groups_path
-    click_link 'Add Group'
-    expect(page).to have_current_path(new_group_path)
-  end
 end

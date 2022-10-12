@@ -1,31 +1,27 @@
 require 'rails_helper'
 
 RSpec.describe 'Groups', type: :feature do
-  before(:each) do
-    @user = User.create(name: 'lex', email: 'mail@mail.ru', password: 'password', password_confirmation: 'password')
-    @group = Group.create(name: 'Group', icon: 'access_alarms')
-    @budget1 = Budget.create(name: 'Transaction', amount: 100)
-    @budget2 = Budget.create(name: 'Transaction2', amount: 100)
+  before(:example) do
+    @user = User.create(name: 'John Doe', email: 'john@mail.com', password: '123456', password_confirmation: '123456')
+    visit '/login'
+    fill_in 'user_email', with: 'john@mail.com'
+    fill_in 'user_password', with: '123456'
+    click_button 'Log in'
+
+    @group = Group.new(name: 'Group 1', icon: 'account_balance', user_id: @user.id)
+    @group2 = Group.new(name: 'Group 2', icon: 'account_balance', user_id: @user.id)
+
+    visit "/groups/#{@group.id}"
   end
 
-  scenario 'when the user access the group page, they are presented with the group name, and total amount' do
-    visit group_path(@group)
-    expect(page).to have_content @group.name
-    expect(page).to have_content @group.budgets.sum(:amount).round(2)
-  end
-
-  scenario 'for each budget, user can see name, amount, and date that belongs to a group' do
-    visit group_path(@group)
-    @group.budgets.each do |budget|
-      expect(page).to have_content budget.name
-      expect(page).to have_content budget.amount
-      expect(page).to have_content budget.date
+  describe 'Display one group' do
+    it 'returns correct response status' do
+      expect(page).to have_http_status(:ok)
     end
-  end
 
-  scenario 'there is an "Add a new Budget" button' do
-    visit group_path(@group)
-    click_link 'Add a new Budget'
-    expect(page).to have_current_path(new_group_budget_path(@group))
+    it 'renders correct template' do
+      expect(page).to have_current_path("/groups/#{@group.id}")
+    end
+
   end
 end
