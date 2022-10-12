@@ -7,7 +7,7 @@ RSpec.describe 'Groups', type: :feature do
     fill_in 'user_email', with: 'john@mail.com'
     fill_in 'user_password', with: '123456'
     click_button 'Log in'
-  end 
+  end
 
   describe 'GET /index' do
     before(:example) { visit '/groups' }
@@ -24,5 +24,4 @@ RSpec.describe 'Groups', type: :feature do
       expect(page).to have_content('Add Group')
     end
   end
-
 end

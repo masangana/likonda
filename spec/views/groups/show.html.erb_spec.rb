@@ -22,6 +22,5 @@ RSpec.describe 'Groups', type: :feature do
     it 'renders correct template' do
       expect(page).to have_current_path("/groups/#{@group.id}")
     end
-
   end
 end
