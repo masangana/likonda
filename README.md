@@ -11,7 +11,7 @@
 ## Links
 
 - [x] You can see the online  [Here](https://likonda.herokuapp.com/)
-- [x] The presentation video is   [Here](https://likonda.herokuapp.com/)
+- [x] The presentation video is   [Here](https://www.loom.com/share/450cf6ad3261498083298b38a008437a)
 
 ## Built With
 
@@ -87,7 +87,7 @@ $ rspec ./spec/#{filename}_spec.rb
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/EidHachem/RecipeOnRails/issues).
+Feel free to check the [issues page](https://github.com/masangana/likonda/issues).
 
 ## Show your support
 
@@ -96,6 +96,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - [Microverse](https://www.microverse.org/)
+- [Gregoire Vella](https://www.behance.net/gregoirevella)
 - Code Reviewers
 - Coding Partners
 
