@@ -8,6 +8,10 @@
 - [x] introduce new transactions associated with a category.
 - [x] see the money spent on each category.
 
+## Links
+
+- [x] You can see the online  [Here](https://likonda.herokuapp.com/)
+- [x] The presentation video is   [Here](https://likonda.herokuapp.com/)
 
 ## Built With
 

@@ -19,7 +19,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-
+    # rubocop:disable Layout/LineLength
     @icons = %w[album all_inclusive all_out android announcement apps archive arrow_back arrow_downward arrow_drop_down arrow_drop_down_circle arrow_drop_up arrow_forward arrow_upward art_track aspect_ratio assessment assignment assignment_ind assignment_late assignment_return assignment_returned assignment_turned_in assistant assistant_photo attach_file attach_money attachment audiotrack autorenew av_timer backspace backup battery_alert battery_charging_full ]
     # rubocop:enable Layout/LineLength
     @user = current_user
