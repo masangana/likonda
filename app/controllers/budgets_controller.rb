@@ -34,6 +34,6 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.permit(:name, :amount, :group_ids => [])
+    params.permit(:name, :amount, group_ids: [])
   end
 end
