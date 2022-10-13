@@ -13,6 +13,8 @@
       <%= f.text_field :name, autofocus: true, placeholder: "Name", class: "input", required: true %>
       <div class="divider"></div>
       <%= f.number_field :amount, placeholder: "Amount", class: "input", required: true %>
+      <div class="divider"></div>
+      <%= f.collection_select :group_ids, @groups, :id, :name, {}, { class: "input", multiple: true, required: true } %>
     </div>
   <% end %>
 </div>

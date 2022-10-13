@@ -1,6 +1,6 @@
 class BudgetsController < ApplicationController
   def index
-    @budgets = Budget.all.includes([:user]).where(user_id: current_user.id).order(:name)
+    @budgets = Budget.all.includes([:user]).where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def show
@@ -8,14 +8,15 @@ class BudgetsController < ApplicationController
   end
 
   def new
+    @groups = Group.all.where(user_id: current_user).order(:name)
     @budget = Budget.new
   end
 
   def create
-    @user = current_user
-    @budget = @user.budgets.new(budget_params)
+    @groups = Group.all.where(user_id: current_user).order(:name)
+    @budget = Budget.new(budget_params)
+    @budget.user_id = current_user.id
     if @budget.save
-      @group_budget = @budget.group_budgets.create(group_id: params[:group_id])
       flash[:success] = 'Budget created!'
       redirect_to group_path(params[:group_id])
     else
@@ -33,6 +34,6 @@ class BudgetsController < ApplicationController
   private
 
   def budget_params
-    params.permit(:name, :amount)
+    params.permit(:name, :amount, :group_ids => [])
   end
 end
